@@ -88,7 +88,7 @@ void loop() {
     display.showNumber(seconds); // Print the number of seconds on the screen
 
     // Check if the number of seconds counted match what the timer is set to
-    if (seconds == timer) {
+    if (seconds >= timer) {
       display.clearDisplay(); // Remove the seconds being counted from the display
       // Blink the timer value on the screen to signal the end of the timer
       display.showNumber(timer); delay(250); display.clearDisplay(); delay(250); display.showNumber(timer); delay(250); display.clearDisplay(); delay(250);
