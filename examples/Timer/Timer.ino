@@ -1,7 +1,7 @@
 /*
   Timer
 
-  This sketch is an adjustable timer (0-102 seconds) that displays how many seconds it has been since the timer was started.
+  This sketch is an adjustable timer (0-10 seconds) that displays how many seconds it has been since the timer was started.
   To use it: set the length of the timer by turning the potentiometer. The set duration will appear on the screen. To start the timer, simply press the pushbutton.
   When the timer ends, the display will blink four times and then be ready for the next timer.
 
@@ -34,7 +34,7 @@
 #include <AutoPlex7.h>
 
 // Set up display
-int displayType = COMMON_CATHODE; // Change to "COMMON_ANODE" if using a common anode display
+int displayType = COMMON_ANODE; // Change to "COMMON_CATHODE" if using a common cathode display
 int D1 = 1;
 int D2 = 2;
 int D3 = 3;
@@ -66,7 +66,7 @@ void setup() {
 
 void loop() {
   unsigned long potValue = analogRead(A0); // Read analog value at A0
-  unsigned long timer = (potValue * 100) / 1000; // Convert analog value from A0 into 0-102 seconds
+  unsigned long timer = (potValue * 10) / 1000; // Convert analog value from A0 into 0-10 seconds
   unsigned long currentMillis = millis(); // Get the current time
   buttonState = digitalRead(13); // Check state of button
 
