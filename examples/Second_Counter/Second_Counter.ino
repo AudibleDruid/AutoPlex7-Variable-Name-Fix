@@ -40,27 +40,18 @@ int F = 10;
 int G = 11;
 int DP = 12;
 
-// Create counter variables
-unsigned long previousMillis = 0;
-const long interval = 1000;
-long seconds = 0;
+// Create counter variable
+unsigned long seconds = 0;
 
 void setup() {
-display.begin(); // Initialize the display
-display.testDisplay(); // Run test to ensure functionality
-delay(1000); // Wait one second
-display.clearDisplay(); // Clears the display
+  display.begin(); // Initialize the display
+  display.testDisplay(); // Run test to ensure functionality
+  delay(1000); // Wait one second
+  display.clearDisplay(); // Clear the display
 }
 
 void loop() {
-unsigned long currentMillis = millis(); // Get the current time
-
-  if (currentMillis - previousMillis >= interval) {
-    // Save the last time you updated the counter
-    previousMillis = currentMillis;
-
-    seconds++; // Increment the seconds counter
-
-    display.showNumber(seconds); // Show the number of seconds on the screen
-  }
+  display.showNumber(seconds); // Show the current number of seconds counted
+  delay(1000); // Wait one second
+  seconds++; // Add 1 to the seconds counter
 }
