@@ -4,7 +4,7 @@
   This sketch will count how many times a button is pressed and show it on a seven segment display.
 
   The circuit:
-  - Pushbutton connected between pin 13 and ground
+  - Pushbutton connected between pin 13 (which is pulled high through a 10K resistor) and ground
   - Display pin A -> Arduino digital pin 5
   - Display pin B -> Arduino digital pin 6
   - Display pin C -> Arduino digital pin 7
