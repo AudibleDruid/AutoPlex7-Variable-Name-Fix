@@ -43,16 +43,16 @@ int DP = 12;
 
 const int buttonPin = 13; // Define what pin the button is connected to
 
-int buttonPushCounter = 0; // Counter for the number of button presses
+unsigned long buttonPushCounter = 0; // Counter for the number of button presses
 int buttonState = 0; // Current state of the button
 int lastButtonState = 0; // Previous state of the button
 
 void setup() {
-pinMode(buttonPin, INPUT);  // Set this pin as an input
-display.begin(); // Activate the display
-display.testDisplay(); // Show all digits, numbers, and decimals
-delay(1000); // Wait one second
-display.clearDisplay(); // Clear the display
+  pinMode(buttonPin, INPUT);  // Set this pin as an input
+  display.begin(); // Activate the display
+  display.testDisplay(); // Show all digits, numbers, and decimals
+  delay(1000); // Wait one second
+  display.clearDisplay(); // Clear the display
 }
 
 void loop() {
