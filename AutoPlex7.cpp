@@ -1,35 +1,35 @@
 #include "AutoPlex7.h"
 
 void Display::blankSegments() {
-    digitalWrite(7A, OFF); digitalWrite(7B, OFF); digitalWrite(7C, OFF);
-    digitalWrite(7D, OFF); digitalWrite(7E, OFF); digitalWrite(7F, OFF);
-    digitalWrite(7G, OFF); digitalWrite(7DP, OFF);
+    digitalWrite(A7, OFF); digitalWrite(B7, OFF); digitalWrite(C7, OFF);
+    digitalWrite(D7, OFF); digitalWrite(E7, OFF); digitalWrite(F7, OFF);
+    digitalWrite(G7, OFF); digitalWrite(DP, OFF);
 }
 
 void Display::activateDigit(int digitIndex){
-    digitalWrite(7D1, digitIndex==0?OFF:ON);
-    digitalWrite(7D2, digitIndex==1?OFF:ON);
-    digitalWrite(7D3, digitIndex==2?OFF:ON);
-    digitalWrite(7D4, digitIndex==3?OFF:ON);
+    digitalWrite(D17, digitIndex==0?OFF:ON);
+    digitalWrite(D27, digitIndex==1?OFF:ON);
+    digitalWrite(D37, digitIndex==2?OFF:ON);
+    digitalWrite(D47, digitIndex==3?OFF:ON);
 }
 
 void Display::showDigitSegments(int val){
     switch(val){
-        case 0: digitalWrite(7A,ON); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,ON); digitalWrite(7E,ON); digitalWrite(7F,ON); digitalWrite(7G,OFF); break;
-        case 1: digitalWrite(7A,OFF); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,OFF); digitalWrite(7E,OFF); digitalWrite(7F,OFF); digitalWrite(7G,OFF); break;
-        case 2: digitalWrite(7A,ON); digitalWrite(7B,ON); digitalWrite(7C,OFF); digitalWrite(7D,ON); digitalWrite(7E,ON); digitalWrite(7F,OFF); digitalWrite(7G,ON); break;
-        case 3: digitalWrite(7A,ON); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,ON); digitalWrite(7E,OFF); digitalWrite(7F,OFF); digitalWrite(7G,ON); break;
-        case 4: digitalWrite(7A,OFF); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,OFF); digitalWrite(7E,OFF); digitalWrite(7F,ON); digitalWrite(7G,ON); break;
-        case 5: digitalWrite(7A,ON); digitalWrite(7B,OFF); digitalWrite(7C,ON); digitalWrite(7D,ON); digitalWrite(7E,OFF); digitalWrite(7F,ON); digitalWrite(7G,ON); break;
-        case 6: digitalWrite(7A,ON); digitalWrite(7B,OFF); digitalWrite(7C,ON); digitalWrite(7D,ON); digitalWrite(7E,ON); digitalWrite(7F,ON); digitalWrite(7G,ON); break;
-        case 7: digitalWrite(7A,ON); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,OFF); digitalWrite(7E,OFF); digitalWrite(7F,OFF); digitalWrite(7G,OFF); break;
-        case 8: digitalWrite(7A,ON); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,ON); digitalWrite(7E,ON); digitalWrite(7F,ON); digitalWrite(7G,ON); break;
-        case 9: digitalWrite(7A,ON); digitalWrite(7B,ON); digitalWrite(7C,ON); digitalWrite(7D,ON); digitalWrite(7E,OFF); digitalWrite(7F,ON); digitalWrite(7G,ON); break;
+        case 0: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,OFF); break;
+        case 1: digitalWrite(A7,OFF); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,OFF); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,OFF); break;
+        case 2: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,OFF); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,OFF); digitalWrite(G7,ON); break;
+        case 3: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,ON); break;
+        case 4: digitalWrite(A7,OFF); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,OFF); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 5: digitalWrite(A7,ON); digitalWrite(B7,OFF); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 6: digitalWrite(A7,ON); digitalWrite(B7,OFF); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 7: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,OFF); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,OFF); break;
+        case 8: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 9: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
     }
 }
 
 void Display::begin(){
-    int pins[] = {7D1,7D2,7D3,7D4,7A,7B,7C,7D,7E,7F,7G,7DP};
+    int pins[] = {D17,D27,D37,D47,A7,B7,C7,D7,E7,F7,G7,DP7};
     for(int i=0;i<12;i++) pinMode(pins[i], OUTPUT);
     clearDisplay();
 
@@ -49,7 +49,7 @@ void Display::blankDigit(){ blankSegments(); }
 void Display::clearDisplay(){
     for(int i=0;i<4;i++){ digitsToDisplay[i]=-1; decimalFlags[i]=false; }
     blankSegments();
-    digitalWrite(7D1,OFF); digitalWrite(7D2,OFF); digitalWrite(7D3,OFF); digitalWrite(7D4,OFF);
+    digitalWrite(D17,OFF); digitalWrite(D27,OFF); digitalWrite(D37,OFF); digitalWrite(D47,OFF);
 }
 
 void Display::showDecimal(){ decimalFlags[currentDigit]=true; }
@@ -79,7 +79,7 @@ void Display::multiplexStep(){
 
     int val = digitsToDisplay[currentDigit];
     if(val != -1) showDigitSegments(val);
-    digitalWrite(DP, decimalFlags[currentDigit]?ON:OFF);
+    digitalWrite(DP7, decimalFlags[currentDigit]?ON:OFF);
 
     currentDigit++;
     if(currentDigit>3) currentDigit=0;
