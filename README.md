@@ -26,42 +26,42 @@ If you're using a common cathode display, just replace "COMMON_ANODE" with "COMM
 
 Now, we'll define the digital pins your seven segment display is connected to. We'll start with the digit pins.
 ```C++
-int 7D1 = // Type the digital pin D1 is connected to here;
-int 7D2 = // Type the digital pin D2 is connected to here;
-int 7D3 = // Type the digital pin D3 is connected to here;
-int 7D4 = // Type the digital pin D4 is connected to here;
+int D17 = // Type the digital pin D1 is connected to here;
+int D27 = // Type the digital pin D2 is connected to here;
+int D37 = // Type the digital pin D3 is connected to here;
+int D47 = // Type the digital pin D4 is connected to here;
 ```
 **IMPOTANT NOTE:** Even if your display does not have four digits, you'll still need to define the pins for the digits you don't have. Just leave these pins unconnected. For instance, if you use a two digit display, you could write that D1 is connnected to pin 1, D2 to 2, D3 to 3, and D4 is 4. You would wire it so that D1 connects to pin 3, and D2 to pin 4. Leave pins 1 and 2 unused.
 (Essentially, just wire it so that the largest pin number is connected to the same pin in the code as it is in the circuit, and connect each pin moving backwards from there.)
 
 Next, we'll define what Arduino pins the display's segment pins are connected to.
 ```C++
-int 7A = // Type the digital pin A is connected to here;
-int 7B = // Type the digital pin B is connected to here;
-int 7C = // Type the digital pin C is connected to here;
-int 7D = // Type the digital pin D is connected to here;
-int 7E = // Type the digital pin E is connected to here;
-int 7F = // Type the digital pin F is connected to here;
-int 7G = // Type the digital pin G is connected to here;
-int 7DP = // Type the digital pin the decimal point is connected to here;
+int A7 = // Type the digital pin A is connected to here;
+int B7 = // Type the digital pin B is connected to here;
+int C7 = // Type the digital pin C is connected to here;
+int D7 = // Type the digital pin D is connected to here;
+int E7 = // Type the digital pin E is connected to here;
+int F7 = // Type the digital pin F is connected to here;
+int G7 = // Type the digital pin G is connected to here;
+int DP7 = // Type the digital pin the decimal point is connected to here;
 ```
 That's it for the paremeters we have to define! Here's an example of what the beginning of a sketch using AutoPlex7 could look like.
 ```C++
 #include <AutoPlex7.h>
 
 int displayType = COMMON_CATHODE;
-int 7D1 = 1;
-int 7D2 = 2;
-int 7D3 = 3;
-int 7D4 = 4;
-int 7A = 5;
-int 7B = 6;
-int 7C = 7;
-int 7D = 8;
-int 7E = 9;
-int 7F = 10;
-int 7G = 11;
-int 7DP = 12;
+int D17 = 1;
+int D27 = 2;
+int D37 = 3;
+int D47 = 4;
+int A7 = 5;
+int B7 = 6;
+int C7 = 7;
+int D7 = 8;
+int E7 = 9;
+int F7 = 10;
+int G7 = 11;
+int DP7 = 12;
 ```
 
 After you're done setting up the paremeters, you'll need to initiallize the seven segment display in ```setup()```. This can be done by calling:
