@@ -11,7 +11,7 @@
 
 extern int displayType;
 extern int D17, D27, D37, D47;
-extern int A7, B7, C7, D7, E7, F7, G7, DP7;
+extern int A77, B7, C7, D77, E7, F7, G7, DP7;
 
 class Display {
 private:
