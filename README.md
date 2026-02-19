@@ -36,10 +36,10 @@ int D47 = // Type the digital pin D4 is connected to here;
 
 Next, we'll define what Arduino pins the display's segment pins are connected to.
 ```C++
-int A7 = // Type the digital pin A is connected to here;
+int A77 = // Type the digital pin A is connected to here;
 int B7 = // Type the digital pin B is connected to here;
 int C7 = // Type the digital pin C is connected to here;
-int D7 = // Type the digital pin D is connected to here;
+int D77 = // Type the digital pin D is connected to here;
 int E7 = // Type the digital pin E is connected to here;
 int F7 = // Type the digital pin F is connected to here;
 int G7 = // Type the digital pin G is connected to here;
@@ -54,10 +54,10 @@ int D17 = 1;
 int D27 = 2;
 int D37 = 3;
 int D47 = 4;
-int A7 = 5;
+int A77 = 5;
 int B7 = 6;
 int C7 = 7;
-int D7 = 8;
+int D77 = 8;
 int E7 = 9;
 int F7 = 10;
 int G7 = 11;
