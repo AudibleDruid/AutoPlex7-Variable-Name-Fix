@@ -1,8 +1,8 @@
 #include "AutoPlex7.h"
 
 void Display::blankSegments() {
-    digitalWrite(A7, OFF); digitalWrite(B7, OFF); digitalWrite(C7, OFF);
-    digitalWrite(D7, OFF); digitalWrite(E7, OFF); digitalWrite(F7, OFF);
+    digitalWrite(A77, OFF); digitalWrite(B7, OFF); digitalWrite(C7, OFF);
+    digitalWrite(D77, OFF); digitalWrite(E7, OFF); digitalWrite(F7, OFF);
     digitalWrite(G7, OFF); digitalWrite(DP, OFF);
 }
 
@@ -15,21 +15,21 @@ void Display::activateDigit(int digitIndex){
 
 void Display::showDigitSegments(int val){
     switch(val){
-        case 0: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,OFF); break;
-        case 1: digitalWrite(A7,OFF); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,OFF); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,OFF); break;
-        case 2: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,OFF); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,OFF); digitalWrite(G7,ON); break;
-        case 3: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,ON); break;
-        case 4: digitalWrite(A7,OFF); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,OFF); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
-        case 5: digitalWrite(A7,ON); digitalWrite(B7,OFF); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
-        case 6: digitalWrite(A7,ON); digitalWrite(B7,OFF); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
-        case 7: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,OFF); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,OFF); break;
-        case 8: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
-        case 9: digitalWrite(A7,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D7,ON); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 0: digitalWrite(A77,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,OFF); break;
+        case 1: digitalWrite(A77,OFF); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,OFF); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,OFF); break;
+        case 2: digitalWrite(A77,ON); digitalWrite(B7,ON); digitalWrite(C7,OFF); digitalWrite(D77,ON); digitalWrite(E7,ON); digitalWrite(F7,OFF); digitalWrite(G7,ON); break;
+        case 3: digitalWrite(A77,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,ON); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,ON); break;
+        case 4: digitalWrite(A77,OFF); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,OFF); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 5: digitalWrite(A77,ON); digitalWrite(B7,OFF); digitalWrite(C7,ON); digitalWrite(D77,ON); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 6: digitalWrite(A77,ON); digitalWrite(B7,OFF); digitalWrite(C7,ON); digitalWrite(D77,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 7: digitalWrite(A77,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,OFF); digitalWrite(E7,OFF); digitalWrite(F7,OFF); digitalWrite(G7,OFF); break;
+        case 8: digitalWrite(A77,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,ON); digitalWrite(E7,ON); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
+        case 9: digitalWrite(A77,ON); digitalWrite(B7,ON); digitalWrite(C7,ON); digitalWrite(D77,ON); digitalWrite(E7,OFF); digitalWrite(F7,ON); digitalWrite(G7,ON); break;
     }
 }
 
 void Display::begin(){
-    int pins[] = {D17,D27,D37,D47,A7,B7,C7,D7,E7,F7,G7,DP7};
+    int pins[] = {D17,D27,D37,D47,A77,B7,C7,D77,E7,F7,G7,DP7};
     for(int i=0;i<12;i++) pinMode(pins[i], OUTPUT);
     clearDisplay();
 
