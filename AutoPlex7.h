@@ -10,8 +10,8 @@
 #define ALL 0
 
 extern int displayType;
-extern int 7D1, 7D2, 7D3, 7D4;
-extern int 7A, 7B, 7C, 7D, 7E, 7F, 7G, 7DP;
+extern int D17, D27, D37, D47;
+extern int A7, B7, C7, D7, E7, F7, G7, DP7;
 
 class Display {
 private:
